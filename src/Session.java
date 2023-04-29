@@ -39,17 +39,25 @@ public class Session {
                     System.out.println("Would you like to view cart(1) or continue shopping(2) ?");
                     second_input = scan_again.nextInt();
                     if (second_input == 1) {
+                        /////////////////////////////////////
                         cart.print_cart();
 
                         System.out.println("Would you like to remove from cart(r) or continue shopping(s) ?");
-                        third_input = scan_again.nextLine();
-                        if (third_input.equalsIgnoreCase("r")) {
+                        third_input = scan_again.nextLine().toLowerCase();
+                        switch (third_input) {
+                            case "r":
 
-                            System.out.println("remove which product? (please input product number)");
-                            second_input = scan_again.nextInt();
-                            cart.remove_from_cart(second_input);
-                            System.out.println(product.get_product_name_by_product_number(second_input) + " was removed from cart");
+                                System.out.println("remove which product? (please input product number)");
+                                second_input = scan_again.nextInt();
+                                cart.remove_from_cart(second_input);
+                                System.out.println(product.get_product_name_by_product_number(second_input) + " was removed from cart");
+                                break;
+
+                            case "s":
+                            session();
+                            break;
                         }
+
 
                         /////////////////////////////////////
 

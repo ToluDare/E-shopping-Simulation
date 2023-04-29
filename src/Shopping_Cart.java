@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Shopping_Cart {
-    private  Double total_checkout =0.00;
+    private  Double total_checkout = 0.00;
     public  ArrayList<Integer> index_of_picked_products = new ArrayList<>();
 
     Product product= new Product();
@@ -17,7 +17,7 @@ public class Shopping_Cart {
 
         for (int i:
                 index_of_picked_products) {
-            total_checkout += product.get_product_price_by_product_number(i) + total_checkout;
+            total_checkout += product.get_product_price_by_product_number(i);
         }
         return total_checkout;
     }
@@ -27,6 +27,7 @@ public class Shopping_Cart {
         for(int i: index_of_picked_products){
            System.out.println(product.get_product_name_by_product_number(i) + " $" + product.get_product_price_by_product_number(i));
         }
+        total_price();
         System.out.println("\t\tTotal: $" + total_checkout);
     }
 
